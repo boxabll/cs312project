@@ -1,7 +1,7 @@
 # functions for finding value of l given a dataset
 import pandas as pd
 
-def evaluate_min_l_diversity(dataframe, quasi_identifiers, sensitive_attribute):
+def evaluate_l_diversity(dataframe, quasi_identifiers, sensitive_attribute):
     """
     Evaluates the minimum l-diversity of a dataset represented as a pandas DataFrame.
 
@@ -17,7 +17,7 @@ def evaluate_min_l_diversity(dataframe, quasi_identifiers, sensitive_attribute):
     diversity_series = dataframe.groupby(quasi_identifiers)[sensitive_attribute].nunique()
 
     # Find the minimum diversity value
-    min_diversity = diversity_series.min()
+    min_diversity = diversity_series.min() 
 
     return min_diversity
 
@@ -32,5 +32,5 @@ df = pd.DataFrame(data)
 
 quasi_ids = ['zipcode', 'age']
 sensitive_attr = 'disease'
-min_diversity = evaluate_min_l_diversity(df, quasi_ids, sensitive_attr)
-print(f"l-diversity: {min_diversity}")
+l_diversity = evaluate_l_diversity(df, quasi_ids, sensitive_attr)
+print(f"l-diversity: {l_diversity}")
