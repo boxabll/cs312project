@@ -1,7 +1,7 @@
 # functions for finding value of l given a dataset
 import pandas as pd
 
-def evaluate_l_diversity(dataframe, quasi_identifiers, sensitive_attribute):
+def evaluate_l_diversity(df, sensitive_column):
     """
     Evaluates the minimum l-diversity of a dataset represented as a pandas DataFrame.
 
@@ -13,24 +13,26 @@ def evaluate_l_diversity(dataframe, quasi_identifiers, sensitive_attribute):
     Returns:
     int: The minimum number of unique sensitive values found across all groups.
     """
+
     # Group the data by the quasi-identifiers and calculate the number of unique sensitive values in each group
-    diversity_series = dataframe.groupby(quasi_identifiers)[sensitive_attribute].nunique()
+    diversity_series = df.groupby(list(df.columns.difference([sensitive_column])))[sensitive_column].nunique()
+    
 
     # Find the minimum diversity value
     min_diversity = diversity_series.min() 
 
     return min_diversity
 
-# Example usage
-data = {
-    'id': [1, 2, 3, 4, 5],
-    'zipcode': ['12345', '12345', '12345', '12345', '67890'],
-    'age': ['30-40', '30-40', '30-40', '41-50', '30-40'],
-    'disease': ['Flu', 'Cold', 'Flu', 'Asthma', 'Diabetes']
-}
-df = pd.DataFrame(data)
+# # Example usage
+# data = {
+#     'id': [1, 2, 3, 4, 5],
+#     'zipcode': ['12345', '12345', '12345', '12345', '67890'],
+#     'age': ['30-40', '30-40', '30-40', '41-50', '30-40'],
+#     'disease': ['Flu', 'Cold', 'Flu', 'Asthma', 'Diabetes']
+# }
+# df = pd.DataFrame(data)
 
-quasi_ids = ['zipcode', 'age']
-sensitive_attr = 'disease'
-l_diversity = evaluate_l_diversity(df, quasi_ids, sensitive_attr)
-print(f"l-diversity: {l_diversity}")
+# quasi_ids = ['zipcode', 'age']
+# sensitive_attr = 'disease'
+# l_diversity = evaluate_l_diversity(df, quasi_ids, sensitive_attr)
+# print(f"l-diversity: {l_diversity}")

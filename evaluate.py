@@ -37,14 +37,14 @@ def main():
         print("Error reading csv into pandas dataframe")
 
     try:
-        k_anonymity(df=dataset, sensitive_column=sensitive_column, index_column=index_column)
+        print("k =",k_anonymity.k_anonymity(df=dataset, sensitive_column=sensitive_column, index_column=index_column))
     except:
         print("Error evaluating k anonymity", file=sys.stderr)
 
     try:
-        l_diversity(df=dataset, sensitive_column=sensitive_column, index_column=index_column)
+        print("l =",l_diversity.evaluate_l_diversity(df=dataset, sensitive_column=sensitive_column))
     except:
-        print("Error evaluating k anonymity", file=sys.stderr)
+        print("Error evaluating l diversity", file=sys.stderr)
 
 if __name__ == "__main__":
     main()
