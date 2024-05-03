@@ -1,5 +1,5 @@
 # functions for finding value of k given a dataset
-import pandas as pd
+import pandas as pd 
 
 def k_anonymity(df, sensitive_column, index_column):
     groups = df.groupby(list(df.columns.difference([sensitive_column, index_column])))

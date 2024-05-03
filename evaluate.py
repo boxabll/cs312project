@@ -31,7 +31,7 @@ def main():
 
     print("Sensitive column: ", sensitive_column)
 
-    try:
+    try: 
         dataset = pd.read_csv(filename)
     except:
         print("Error reading csv into pandas dataframe")
