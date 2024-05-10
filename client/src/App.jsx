@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+// api endpoint: https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate
+// pass csv data encoded in body of request
+
 function App() {
 
   const [columnOptions, setColumnOptions] = useState([]);
