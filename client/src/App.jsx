@@ -5,6 +5,8 @@ import './App.css'
 
 // api endpoint: https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate
 // pass csv data encoded in body of request
+// query parameters:
+// /evaluate?sensitive_column=<column_name>&index_column=<optional_index_col_name>
 
 function App() {
 
@@ -18,16 +20,20 @@ function App() {
 
   const handleUpload = () => {
     console.log("File uploaded!")
+    const selectedFile = document.getElementById("datafile").files[0];
+
     // encode file
     // updates column Options
   }
 
-  const handleSensitiveColumnSelect = () => {
+  const handleSensitiveColumnSelect = (event) => {
+    setSensitiveColumn(event.target.value)
     console.log("Sensitive column updated!")
   }
 
 
-  const handleIndexColumnSelect = () => {
+  const handleIndexColumnSelect = (event) => {
+    setIndexColumn(event.target.value)
     console.log("Index column updated!")
   }
 
@@ -44,9 +50,10 @@ function App() {
           Index Column
           <select value={indexColumn} onChange={handleIndexColumnSelect}>
             {columnOptions.filter(option => option != sensitiveColumn).map(option => <option value={option}>{option}</option>)}
+            <option value="">None</option>
           </select>
         </label>
-        <input type="file" onChange={handleUpload} />
+        <input id="datafile" type="file" onChange={handleUpload} />
         <input type="submit" value="Submit" />
       </form>
     </div>
