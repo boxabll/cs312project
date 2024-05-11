@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import Papa from 'papaparse'
+
 // api endpoint: https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate
 // pass csv data encoded in body of request
 // query parameters:
@@ -12,6 +14,7 @@ function App() {
 
   const [columnOptions, setColumnOptions] = useState([]);
   const [sensitiveColumn, setSensitiveColumn] = useState("");
+  const [file, setFile] = useState([]);
   const [indexColumn, setIndexColumn] = useState("");
 
   const handleSubmit = () => {
@@ -21,6 +24,13 @@ function App() {
   const handleUpload = () => {
     console.log("File uploaded!")
     const selectedFile = document.getElementById("datafile").files[0];
+    setFile(selectedFile)
+
+    Papa.parse(selectedFile, {
+      complete: function(results) {
+        setColumnOptions(results.data[0])
+      }
+    });
 
     // encode file
     // updates column Options
