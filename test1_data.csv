@@ -1,0 +1,16 @@
+Age,Gender,City,Profession,Education,Health_Condition
+28,Female,Miami,Engineer,Bachelor's,Hypertension
+28,Female,Miami,Engineer,Bachelor's,Diabetes
+28,Female,Miami,Engineer,Bachelor's,HCitypertension
+34,Male,Seattle,Teacher,Master's,Asthma
+34,Male,Seattle,Teacher,Master's,Allergy
+34,Male,Seattle,Teacher,Master's,Allergy
+29,Male,Denver,Chef,Associate's,Hypertension
+29,Male,Denver,Chef,Associate's,Obesity
+29,Male,Denver,Chef,Associate's,Obesity
+45,Female,San Francisco,Manager,MBA,Heart Disease
+45,Female,San Francisco,Manager,MBA,Hypertension
+45,Female,San Francisco,Manager,MBA,Hypertension
+50,Male,Dallas,Lawyer,JD,Diabetes
+50,Male,Dallas,Lawyer,JD,Heart Disease
+50,Male,Dallas,Lawyer,JD,Diabetes
