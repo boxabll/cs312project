@@ -91,6 +91,7 @@ button.nav-link:hover {
   height: 100%;
   width: 100%;
   position: relative;
+    
 }
 
 .form-container {
@@ -183,4 +184,26 @@ button.nav-link:hover {
 .app-container.dark .nav-link,
 .app-container.dark .toggle-button {
   color: #ecf0f1;
+}
+
+.data-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.data-label {
+  width: -webkit-fill-available;
+  text-align: left;
+}
+
+.data-value {
+  text-align: right;
+  display: block;
+  margin: 15px 0 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50; /* Darker text color for better visibility */
+  width: -webkit-fill-available;
 }

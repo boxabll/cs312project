@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Papa from 'papaparse';
-import './App.css'; 
-import PlanesBackground from './components/PlanesBackground';     
+import './App.css';
+import PlanesBackground from './components/PlanesBackground';
 
 // api endpoint: https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate
 // pass csv data encoded in body of request
@@ -15,6 +15,9 @@ function App() {
   const [fileEncoded, setFileEncoded] = useState(null);
   const [indexColumn, setIndexColumn] = useState('');
   const [darkMode, setDarkMode] = useState(false);
+
+  const [kanon, setKanon] = useState();
+  const [ldiverse, setLdiverse] = useState();
 
   useEffect(() => {
     if (file) {
@@ -32,25 +35,46 @@ function App() {
         const text = reader.result;
         const encoded = btoa(text);
         setFileEncoded(encoded);
-        console.log('file encoded:', fileEncoded);
       };
       reader.readAsText(file);
-
-      setSensitiveColumn(columnOptions[0]);
     }
   }, [file]);
+
+  useEffect(() => {
+    if (fileEncoded) {
+      console.log('file encoded:', fileEncoded);
+    }
+  }, [fileEncoded])
+
+  useEffect(() => {
+    if (kanon) {
+      console.log("k anonymity: ", kanon)
+    }
+  }, [kanon])
+
+  useEffect(() => {
+    if (ldiverse) {
+      console.log("l diversity: ", ldiverse)
+    }
+  }, [ldiverse])
+
+  useEffect(() => {
+    if (columnOptions) {
+      setSensitiveColumn(columnOptions[0]);
+    }
+  }, [columnOptions])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Submit form!');
-  
+
     const apiUrl = 'https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate';
     console.log('params:', sensitiveColumn)
     const query = new URLSearchParams({
       sensitive_column: sensitiveColumn,
       index_column: indexColumn || 'None'
     }).toString();
-  
+
     try {
       // Convert CSV data to a string
       // const csvDataString = file.text;
@@ -58,7 +82,7 @@ function App() {
       const requestBody = {
         csv_data: fileEncoded
       };
-  
+
       const response = await fetch(`${apiUrl}?${query}`, {
         method: 'POST',
         body: JSON.stringify(requestBody),
@@ -66,14 +90,17 @@ function App() {
           'Content-Type': 'application/json'
         }
       });
-  
+
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-  
+
       const responseData = await response.json();
       console.log('API Response:', responseData);
-    } 
+
+      setKanon(responseData.min_k_anonymity)
+      setLdiverse(responseData.min_l_diversity)
+    }
     catch (error) {
       console.error('Error:', error);
     }
@@ -140,6 +167,28 @@ function App() {
           <input className="file-input" id="datafile" type="file" onChange={handleUpload} />
           <input className="submit-button" type="submit" value="Submit" />
         </form>
+      </div>
+      <div
+        className="form-container results-wrapper"
+      >
+        <div className="form">
+          <div className="data-row">
+            <div className="label data-label">
+              k-anonymity
+            </div>
+            <div className="data-value">
+              {kanon ? kanon : "n/a"}
+            </div>
+          </div>
+          <div className="data-row">
+            <div className="label data-label">
+              l-diversity
+            </div>
+            <div className="data-value">
+              {ldiverse ? ldiverse : "n/a"}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
