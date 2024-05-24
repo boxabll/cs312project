@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import './App.css'; 
 import PlanesBackground from './components/PlanesBackground';     
@@ -11,26 +11,64 @@ import PlanesBackground from './components/PlanesBackground';
 function App() {
   const [columnOptions, setColumnOptions] = useState([]);
   const [sensitiveColumn, setSensitiveColumn] = useState('');
-  const [file, setFile] = useState([]);
+  const [file, setFile] = useState(null);
   const [indexColumn, setIndexColumn] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (file) {
+      console.log(file)
+      Papa.parse(file, {
+        complete: function (results) {
+          setColumnOptions(results.data[0])
+        },
+      });
+    }
+  }, [file]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Submit form!');
-    // Add form submission logic here
+  
+    const apiUrl = 'https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate';
+    const query = new URLSearchParams({
+      sensitive_column: sensitiveColumn,
+      index_column: indexColumn || 'None'
+    }).toString();
+  
+    try {
+      // Convert CSV data to a string
+      // const csvDataString = file.text;
+      const csvDataString = 'hello' // will need to be changed, just placeholder to test whether lambda working
+  
+      const requestBody = {
+        csv_data: csvDataString
+      };
+  
+      const response = await fetch(`${apiUrl}?${query}`, {
+        method: 'POST',
+        body: JSON.stringify(requestBody),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const responseData = await response.json();
+      console.log('API Response:', responseData);
+    } 
+    catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const handleUpload = () => {
     console.log('File uploaded!');
     const selectedFile = document.getElementById('datafile').files[0];
     setFile(selectedFile);
-
-    Papa.parse(selectedFile, {
-      complete: function (results) {
-        setColumnOptions(results.data[0]);
-      },
-    });
   };
 
   const handleSensitiveColumnSelect = (event) => {
