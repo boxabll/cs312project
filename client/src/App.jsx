@@ -12,17 +12,31 @@ function App() {
   const [columnOptions, setColumnOptions] = useState([]);
   const [sensitiveColumn, setSensitiveColumn] = useState('');
   const [file, setFile] = useState(null);
+  const [fileEncoded, setFileEncoded] = useState(null);
   const [indexColumn, setIndexColumn] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     if (file) {
-      console.log(file)
+      console.log(file);
+
+      // Parse CSV to get column headers
       Papa.parse(file, {
         complete: function (results) {
-          setColumnOptions(results.data[0])
+          setColumnOptions(results.data[0]);
         },
       });
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const text = reader.result;
+        const encoded = btoa(text);
+        setFileEncoded(encoded);
+        console.log('file encoded:', fileEncoded);
+      };
+      reader.readAsText(file);
+
+      setSensitiveColumn(columnOptions[0]);
     }
   }, [file]);
 
@@ -31,6 +45,7 @@ function App() {
     console.log('Submit form!');
   
     const apiUrl = 'https://l22jerki3k.execute-api.us-east-2.amazonaws.com/prod/evaluate';
+    console.log('params:', sensitiveColumn)
     const query = new URLSearchParams({
       sensitive_column: sensitiveColumn,
       index_column: indexColumn || 'None'
@@ -39,10 +54,9 @@ function App() {
     try {
       // Convert CSV data to a string
       // const csvDataString = file.text;
-      const csvDataString = 'hello' // will need to be changed, just placeholder to test whether lambda working
-  
+      // const csvDataString = 'hello' // will need to be changed, just placeholder to test whether lambda working  
       const requestBody = {
-        csv_data: csvDataString
+        csv_data: fileEncoded
       };
   
       const response = await fetch(`${apiUrl}?${query}`, {
