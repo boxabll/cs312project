@@ -1,22 +1,21 @@
 Age,Gender,City,Profession,Education,Health_Condition
-29,Female,Miami,Engineer,Bachelor's,Hypertension
-29,Female,Miami,Engineer,Bachelor's,Diabetes
-29,Female,Miami,Engineer,Bachelor's,Asthma
-45,Male,Dallas,Chef,Associate's,Obesity
-45,Male,Dallas,Chef,Associate's,Diabetes
-45,Male,Dallas,Chef,Associate's,Heart Disease
-50,Female,New York,Artist,Master's,Asthma
-50,Female,New York,Artist,Master's,Allergy
-50,Female,New York,Artist,Master's,Hypertension
-33,Male,San Diego,Architect,Master's,Hypertension
-33,Male,San Diego,Architect,Master's,Obesity
-33,Male,San Diego,Architect,Master's,Diabetes
-37,Female,San Jose,Manager,MBA,Heart Disease
-37,Female,San Jose,Manager,MBA,Hypertension
-37,Female,San Jose,Manager,MBA,Asthma
-41,Male,Las Vegas,Teacher,Master's,Diabetes
-41,Male,Las Vegas,Teacher,Master's,Allergy
-41,Male,Las Vegas,Teacher,Master's,Hypertension
-43,Female,Houston,Lawyer,JD,Obesity
-43,Female,Houston,Lawyer,JD,Diabetes
-43,Female,Houston,Lawyer,JD,Asthma
+30,Male,New York,Doctor,PhD,Healthy
+30,Male,New York,Doctor,PhD,Healthy
+30,Male,New York,Doctor,PhD,Healthy
+30,Male,New York,Doctor,PhD,Healthy
+30,Male,New York,Doctor,PhD,Healthy
+45,Female,Los Angeles,Engineer,Master's,Diabetes
+45,Female,Los Angeles,Engineer,Master's,Diabetes
+45,Female,Los Angeles,Engineer,Master's,Diabetes
+45,Female,Los Angeles,Engineer,Master's,Diabetes
+45,Female,Los Angeles,Engineer,Master's,Diabetes
+60,Male,Chicago,Teacher,Bachelor's,Hypertension
+60,Male,Chicago,Teacher,Bachelor's,Hypertension
+60,Male,Chicago,Teacher,Bachelor's,Hypertension
+60,Male,Chicago,Teacher,Bachelor's,Hypertension
+60,Male,Chicago,Teacher,Bachelor's,Hypertension
+35,Female,Houston,Lawyer,JD,Asthma
+35,Female,Houston,Lawyer,JD,Asthma
+35,Female,Houston,Lawyer,JD,Asthma
+35,Female,Houston,Lawyer,JD,Asthma
+35,Female,Houston,Lawyer,JD,Asthma
