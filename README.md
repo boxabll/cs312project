@@ -1,5 +1,5 @@
 # cs312project
 
-# HOW TO SETUP A VENV:
+# Demo
+<img width="1512" alt="image" src="https://github.com/boxabll/cs312project/assets/128833289/b1f8119a-ef3a-454b-8957-be9e507c8156">
 
-https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
