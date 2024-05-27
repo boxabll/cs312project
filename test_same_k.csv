@@ -1,0 +1,21 @@
+Age,Gender,City,Profession,Education,Health_Condition
+40,Female,Seattle,Engineer,Bachelor's,Asthma
+40,Female,Seattle,Engineer,Bachelor's,Hypertension
+40,Female,Seattle,Engineer,Bachelor's,Diabetes
+40,Female,Seattle,Engineer,Bachelor's,Obesity
+40,Female,Seattle,Engineer,Bachelor's,Heart Disease
+35,Male,San Francisco,Lawyer,JD,Diabetes
+35,Male,San Francisco,Lawyer,JD,Heart Disease
+35,Male,San Francisco,Lawyer,JD,Asthma
+35,Male,San Francisco,Lawyer,JD,Hypertension
+35,Male,San Francisco,Lawyer,JD,Obesity
+28,Female,Chicago,Teacher,Master's,Allergy
+28,Female,Chicago,Teacher,Master's,Diabetes
+28,Female,Chicago,Teacher,Master's,Hypertension
+28,Female,Chicago,Teacher,Master's,Asthma
+28,Female,Chicago,Teacher,Master's,Obesity
+50,Male,Austin,Doctor,PhD,Cancer
+50,Male,Austin,Doctor,PhD,Diabetes
+50,Male,Austin,Doctor,PhD,Hypertension
+50,Male,Austin,Doctor,PhD,Asthma
+50,Male,Austin,Doctor,PhD,Heart Disease

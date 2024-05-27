@@ -1,0 +1,17 @@
+Age,Gender,City,Profession,Education,Health_Condition
+25,Female,New York,Developer,Bachelor's,Asthma
+25,Female,New York,Developer,Bachelor's,Diabetes
+25,Female,New York,Developer,Bachelor's,Hypertension
+25,Female,New York,Developer,Bachelor's,Obesity
+30,Male,Los Angeles,Artist,Master's,Cancer
+30,Male,Los Angeles,Artist,Master's,Heart Disease
+30,Male,Los Angeles,Artist,Master's,Obesity
+30,Male,Los Angeles,Artist,Master's,Asthma
+45,Female,Chicago,Doctor,PhD,Hypertension
+45,Female,Chicago,Doctor,PhD,Diabetes
+45,Female,Chicago,Doctor,PhD,Asthma
+45,Female,Chicago,Doctor,PhD,Allergy
+55,Male,Houston,Chef,Associate's,Heart Disease
+55,Male,Houston,Chef,Associate's,Allergy
+55,Male,Houston,Chef,Associate's,Cancer
+55,Male,Houston,Chef,Associate's,Hypertension
