@@ -1,17 +1,25 @@
 Age,Gender,City,Profession,Education,Health_Condition
-25,Female,New York,Developer,Bachelor's,Asthma
-25,Female,New York,Developer,Bachelor's,Diabetes
-25,Female,New York,Developer,Bachelor's,Hypertension
-25,Female,New York,Developer,Bachelor's,Obesity
-30,Male,Los Angeles,Artist,Master's,Cancer
-30,Male,Los Angeles,Artist,Master's,Heart Disease
-30,Male,Los Angeles,Artist,Master's,Obesity
-30,Male,Los Angeles,Artist,Master's,Asthma
-45,Female,Chicago,Doctor,PhD,Hypertension
-45,Female,Chicago,Doctor,PhD,Diabetes
-45,Female,Chicago,Doctor,PhD,Asthma
-45,Female,Chicago,Doctor,PhD,Allergy
-55,Male,Houston,Chef,Associate's,Heart Disease
-55,Male,Houston,Chef,Associate's,Allergy
-55,Male,Houston,Chef,Associate's,Cancer
-55,Male,Houston,Chef,Associate's,Hypertension
+40,Female,Seattle,Engineer,Bachelor's,Diabetes
+40,Female,Seattle,Engineer,Bachelor's,Asthma
+40,Female,Seattle,Engineer,Bachelor's,Obesity
+35,Male,San Francisco,Lawyer,JD,Hypertension
+35,Male,San Francisco,Lawyer,JD,Heart Disease
+35,Male,San Francisco,Lawyer,JD,Obesity
+28,Female,Chicago,Teacher,Master's,Allergy
+28,Female,Chicago,Teacher,Master's,Asthma
+28,Female,Chicago,Teacher,Master's,Diabetes
+35,Male,San Francisco,Lawyer,JD,Diabetes
+35,Male,San Francisco,Lawyer,JD,Heart Disease
+35,Male,San Francisco,Lawyer,JD,Asthma
+28,Female,Chicago,Teacher,Master's,Asthma
+28,Female,Chicago,Teacher,Master's,Hypertension
+28,Female,Chicago,Teacher,Master's,Obesity
+40,Female,Seattle,Engineer,Bachelor's,Heart Disease
+40,Female,Seattle,Engineer,Bachelor's,Hypertension
+40,Female,Seattle,Engineer,Bachelor's,Asthma
+35,Male,San Francisco,Lawyer,JD,Obesity
+35,Male,San Francisco,Lawyer,JD,Heart Disease
+35,Male,San Francisco,Lawyer,JD,Hypertension
+28,Female,Chicago,Teacher,Master's,Diabetes
+28,Female,Chicago,Teacher,Master's,Allergy
+28,Female,Chicago,Teacher,Master's,Obesity
